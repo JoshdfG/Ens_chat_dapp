@@ -6,6 +6,14 @@ contract ENSContract {
     mapping(string => address) public nameToAddress;
     mapping(address => string) public userImages;
 
+    struct UserDetails {
+        string name;
+        string image;
+        address userAddress;
+    }
+
+    mapping(address => UserDetails) details;
+
     event UserNameUpdated(address indexed user, string name);
     event UserImageUpdated(address indexed user, string image);
 
@@ -18,16 +26,13 @@ contract ENSContract {
         userNames[msg.sender] = _name;
         nameToAddress[_name] = msg.sender;
         userImages[msg.sender] = _image;
+        details[msg.sender] = UserDetails(_name, _image, msg.sender);
         emit UserNameUpdated(msg.sender, _name);
         emit UserImageUpdated(msg.sender, _image);
     }
 
-    function getName(address _user) public view returns (string memory) {
-        return userNames[_user];
-    }
-
-    function getAddress(string memory _name) public view returns (address) {
-        return nameToAddress[_name];
+    function getUser() external view returns (UserDetails memory) {
+        return details[msg.sender];
     }
 
     function getImage(address _user) public view returns (string memory) {
