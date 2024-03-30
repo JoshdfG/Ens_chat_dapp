@@ -47,7 +47,7 @@ export default function Chat({ ens }) {
           <img
             src={processURL(ens?.image)}
             alt={"GR"}
-            className="w-[20px] h-[20px]"
+            className="w-[40px] h-[40px] rounded-full"
           />
         </div>
         <h1>{ens?.name}</h1>

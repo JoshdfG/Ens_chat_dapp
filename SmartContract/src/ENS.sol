@@ -31,6 +31,14 @@ contract ENSContract {
         emit UserImageUpdated(msg.sender, _image);
     }
 
+    function getName(address _user) public view returns (string memory) {
+        return userNames[_user];
+    }
+
+    function getAddress(string memory _name) public view returns (address) {
+        return nameToAddress[_name];
+    }
+
     function getUser() external view returns (UserDetails memory) {
         return details[msg.sender];
     }
