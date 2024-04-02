@@ -42,7 +42,7 @@ export default function Form() {
     try {
       const cid = await uploadImage(); // Ensure the image is uploaded and URL is set
       await registerUser.registerENs(username, cid);
-      // navigate("/chat"); // Navigate to /chat upon successful registration
+      navigate("/chat"); // Navigate to /chat upon successful registration
     } catch (error) {
       console.error("Registration failed:", error);
       // Handle registration failure, e.g., show an error message
