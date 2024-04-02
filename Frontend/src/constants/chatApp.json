@@ -1,0 +1,106 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_ensContractAddress",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "chats",
+    "inputs": [
+      { "name": "", "type": "string", "internalType": "string" },
+      { "name": "", "type": "string", "internalType": "string" },
+      { "name": "", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [
+      { "name": "senderName", "type": "string", "internalType": "string" },
+      { "name": "receiverName", "type": "string", "internalType": "string" },
+      { "name": "content", "type": "string", "internalType": "string" },
+      { "name": "timestamp", "type": "uint256", "internalType": "uint256" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMessage",
+    "inputs": [
+      { "name": "_senderName", "type": "string", "internalType": "string" },
+      { "name": "_receiverName", "type": "string", "internalType": "string" }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ChatDApp.Message[]",
+        "components": [
+          { "name": "senderName", "type": "string", "internalType": "string" },
+          {
+            "name": "receiverName",
+            "type": "string",
+            "internalType": "string"
+          },
+          { "name": "content", "type": "string", "internalType": "string" },
+          { "name": "timestamp", "type": "uint256", "internalType": "uint256" }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMessagesCount",
+    "inputs": [
+      { "name": "_senderName", "type": "string", "internalType": "string" },
+      { "name": "_receiverName", "type": "string", "internalType": "string" }
+    ],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "sendMessage",
+    "inputs": [
+      { "name": "_receiverName", "type": "string", "internalType": "string" },
+      { "name": "_content", "type": "string", "internalType": "string" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "MessageSent",
+    "inputs": [
+      {
+        "name": "senderName",
+        "type": "string",
+        "indexed": true,
+        "internalType": "string"
+      },
+      {
+        "name": "receiverName",
+        "type": "string",
+        "indexed": true,
+        "internalType": "string"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      },
+      {
+        "name": "timestamp",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  }
+]
